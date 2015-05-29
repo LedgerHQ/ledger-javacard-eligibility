@@ -22,10 +22,36 @@ package com.ledger.eligibility;
 
 import javacard.security.Key;
 
+/**
+ * Implements proprietary features not present in the Java Card API or optimizations
+ * @author BTChip
+ *
+ */
 public interface ProprietaryAPI {
 	
+	/**
+	 * Get the uncompressed public key
+	 * @param privateKey buffer containing the private key
+	 * @param privateKeyOffset offset to the private key in the buffer
+	 * @param publicPoint buffer that will contain the uncompressed public key (65 bytes)
+	 * @param publicPointOffset offset to the uncompressed public key in the buffer
+	 * @return true if ok, false if an error occurred
+	 */
 	public boolean getUncompressedPublicPoint(byte[] privateKey, short privateKeyOffset, byte[] publicPoint, short publicPointOffset);
+	/**
+	 * Check if there is an optimized support for HMAC SHA512
+	 * @return true if it's present, otherwise false
+	 */
 	public boolean hasHmacSHA512();
+	/**
+	 * Perform an optimized HMAC SHA512 operation
+	 * @param key HMAC key object provisioned with the HMAC key
+	 * @param in buffer containing the data to HMAC
+	 * @param inBuffer offset to the data
+	 * @param inLength length of the data
+	 * @param out buffer that will contain the HMAC SHA512 result
+	 * @param outOffset offset to the result
+	 */
 	public void hmacSHA512(Key key, byte[] in, short inBuffer, short inLength, byte[] out, short outOffset);
 
 }
