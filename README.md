@@ -8,6 +8,7 @@ It tries to find out all available algorithms, provide a pure Java implementatio
 If you have access to proprietary APIs, you can easily enable additional tests by providing an implementation of the ProprietaryAPI class 
 
 For any question or commercial licensing, reach us at hello@ledger.fr
+For technical question, open an issue on the repo.
 
 Sample report on a Yubikey Neo 
 -------------------------------
